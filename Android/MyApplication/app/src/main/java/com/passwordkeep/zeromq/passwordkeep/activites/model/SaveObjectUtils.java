@@ -119,6 +119,21 @@ public class SaveObjectUtils {
         return null;
     }
 
+    public void onDestroy() {
+        // TODO Auto-generated method stub
+        SharedPreferences sp = this.context.getSharedPreferences(this.name, Context.MODE_PRIVATE);
+
+        try {
+
+            SharedPreferences.Editor editor = sp.edit();
+            editor.clear();
+            editor.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * 对于外部不可见的过渡方法
      *

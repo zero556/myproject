@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,8 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.passwordkeep.zeromq.passwordkeep.R;
+import com.passwordkeep.zeromq.passwordkeep.activites.model.BaseActivity;
 
-public class TitleActivity extends Activity implements View.OnClickListener {
+public class TitleActivity extends BaseActivity implements View.OnClickListener {
 
     //private RelativeLayout mLayoutTitleBar;
     private TextView mTitleTextView;
@@ -22,6 +24,7 @@ public class TitleActivity extends Activity implements View.OnClickListener {
     private Button mForwardButton;
     private FrameLayout mContentLayout;
     private Typeface font ;
+    private long exitTime = 0;
 
 
     @Override
@@ -162,6 +165,28 @@ public class TitleActivity extends Activity implements View.OnClickListener {
 
             default:
                 break;
+        }
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void exit() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(getApplicationContext(), "再按一次退出程序",
+                    Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+            finishAllActivity();
+            System.exit(0);
         }
     }
 }

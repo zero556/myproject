@@ -24,7 +24,8 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activites.TitleActivity" />
         <activity android:name=".activites.SelectTypeActivity" />
-        <activity android:name=".activites.ShowPasswordKeepActivity"></activity>
+        <activity android:name=".activites.ShowPasswordKeepListActivity" />
+        <activity android:name=".activites.ShowPasswordKeepDetailActivity" ></activity>
     </application>
 
 </manifest>

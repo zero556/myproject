@@ -14,7 +14,6 @@ import com.passwordkeep.zeromq.passwordkeep.activites.adapter.PasswordTypeAdapte
 import com.passwordkeep.zeromq.passwordkeep.activites.model.PasswordKeepModel;
 import com.passwordkeep.zeromq.passwordkeep.activites.model.PasswordTypeModel;
 import com.passwordkeep.zeromq.passwordkeep.activites.model.SingletonModel;
-import com.passwordkeep.zeromq.passwordkeep.activites.model.UserModel;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -87,7 +86,7 @@ public class MainActivity extends TitleActivity {
                 int count= Integer.parseInt( textViewCount.getText().toString());
 
                 if(count>0 ) {
-                    Intent intent=new Intent(MainActivity.this,ShowPasswordKeepActivity.class);
+                    Intent intent=new Intent(MainActivity.this,ShowPasswordKeepListActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("title", selectTitle);
                     bundle.putInt("iconIndex", i);

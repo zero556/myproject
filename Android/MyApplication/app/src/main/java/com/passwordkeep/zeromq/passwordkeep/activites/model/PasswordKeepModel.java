@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public class PasswordKeepModel implements Serializable {
 
+    private String id;
     private String account;
     private String password;
     private String remark;
@@ -23,6 +24,7 @@ public class PasswordKeepModel implements Serializable {
 
     public PasswordKeepModel(String title,String account , String password, String remark, PasswordTypeModel passwordType)
     {
+        this.id=java.util.UUID.randomUUID().toString();
         this.title=title;
         this.account=account;
         this.password=password;
@@ -38,6 +40,10 @@ public class PasswordKeepModel implements Serializable {
     public String getAccount() {
 
         return account;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getRemark() {

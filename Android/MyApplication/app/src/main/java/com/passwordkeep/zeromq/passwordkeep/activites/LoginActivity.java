@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.passwordkeep.zeromq.passwordkeep.R;
+import com.passwordkeep.zeromq.passwordkeep.activites.model.BaseActivity;
 import com.passwordkeep.zeromq.passwordkeep.activites.model.PasswordKeepModel;
 import com.passwordkeep.zeromq.passwordkeep.activites.model.SaveObjectUtils;
 import com.passwordkeep.zeromq.passwordkeep.activites.model.SingletonModel;
@@ -21,7 +22,7 @@ import com.passwordkeep.zeromq.passwordkeep.activites.model.UserModel;
 
 import java.util.LinkedList;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends BaseActivity {
 
     private EditText pass1,pass2,pass3,pass4;
     private SingletonModel singletonModel;
@@ -34,7 +35,7 @@ public class LoginActivity extends Activity {
 
         utils=new SaveObjectUtils(this,key);
         singletonModel=SingletonModel.getInstance();
-
+        // utils.onDestroy();
 
         UserModel userModel=utils.getObject("zero",UserModel.class);
         if(userModel==null) {
@@ -98,6 +99,7 @@ public class LoginActivity extends Activity {
 
                         Intent intent=new Intent(LoginActivity.this,MainActivity.class);
                         startActivity(intent);
+
                     }
                     else
                     {
